@@ -1,5 +1,5 @@
 %define name	xpad
-%define version	2.11
+%define version	2.12
 %define release %mkrel 1
 %define icon48	%_builddir/%{name}-%{version}/images/hicolor/48x48/apps/%{name}.png
 
@@ -17,7 +17,7 @@ License:	GPL
 Requires:	gtk+2.0 >= 2.6
 Group:		Office
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	pkgconfig gtk+2-devel >= 2.6 gettext
+BuildRequires:	pkgconfig gtk+2-devel >= 2.6 gettext desktop-file-utils
 
 %description
 Xpad is a GTK+2 application that emulates real-life sticky notes. If you
@@ -37,12 +37,6 @@ is easy-to-use, fault-tolerant, and its appearance is customizable.
 
 %find_lang %name
 
-#menu
-%__mkdir -p $RPM_BUILD_ROOT%{_menudir}
-%__cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="%{name}.png" needs="x11" title="XPad" longtitle="Sticky Notes" section="Office/Accessories"
-EOF
-
 #icons
 %__mkdir -p $RPM_BUILD_ROOT%_liconsdir
 %__cp %{icon48} $RPM_BUILD_ROOT%_liconsdir/%{name}.png
@@ -51,6 +45,10 @@ EOF
 %__cat %SOURCE2 > $RPM_BUILD_ROOT%_iconsdir/%name.png
 %__mkdir -p $RPM_BUILD_ROOT%_miconsdir
 %__cat %SOURCE3 > $RPM_BUILD_ROOT%_miconsdir/%name.png
+
+desktop-file-install --vendor="" \
+	--dir $RPM_BUILD_ROOT%{_datadir}/applications \
+	$RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
 %clean
 %__rm -rf $RPM_BUILD_ROOT
@@ -71,5 +69,4 @@ EOF
 %{_iconsdir}/%name.png
 %{_liconsdir}/%name.png
 %{_miconsdir}/%name.png
-%{_menudir}/%name
 %{_mandir}/man1/*
