@@ -61,7 +61,7 @@ desktop-file-install --vendor="" \
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc ABOUT-NLS AUTHORS NEWS README THANKS TODO ChangeLog
+%doc AUTHORS NEWS README THANKS TODO ChangeLog
 %{_bindir}/%name
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*.png
