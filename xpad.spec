@@ -1,5 +1,5 @@
 %define name	xpad
-%define version	2.12
+%define version	2.13
 %define release %mkrel 1
 %define icon48	%_builddir/%{name}-%{version}/images/hicolor/48x48/apps/%{name}.png
 
@@ -13,11 +13,11 @@ Source:		http://prdownloads.sourceforge.net/xpad/%{name}-%{version}.tar.bz2
 Source2: 	%{name}32.png
 Source3: 	%{name}16.png
 URL:		http://xpad.sourceforge.net
-License:	GPL
+License:	GPLv2+
 Requires:	gtk+2.0 >= 2.6
 Group:		Office
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	pkgconfig gtk+2-devel >= 2.6 gettext desktop-file-utils
+BuildRequires:	pkgconfig gtk+2-devel >= 2.6 gettext
 
 %description
 Xpad is a GTK+2 application that emulates real-life sticky notes. If you
@@ -46,9 +46,6 @@ is easy-to-use, fault-tolerant, and its appearance is customizable.
 %__mkdir -p $RPM_BUILD_ROOT%_miconsdir
 %__cat %SOURCE3 > $RPM_BUILD_ROOT%_miconsdir/%name.png
 
-desktop-file-install --vendor="" \
-	--dir $RPM_BUILD_ROOT%{_datadir}/applications \
-	$RPM_BUILD_ROOT%{_datadir}/applications/*.desktop
 
 %clean
 %__rm -rf $RPM_BUILD_ROOT
