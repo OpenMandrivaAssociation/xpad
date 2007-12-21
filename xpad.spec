@@ -16,6 +16,7 @@ URL:		http://xpad.sourceforge.net
 License:	GPLv2+
 Requires:	gtk+2.0 >= 2.6
 Group:		Office
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig gtk+2-devel >= 2.6 gettext
 
 %description
