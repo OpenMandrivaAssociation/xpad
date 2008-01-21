@@ -1,5 +1,5 @@
 %define name	xpad
-%define version	2.13
+%define version	2.14
 %define release %mkrel 1
 %define icon48	%_builddir/%{name}-%{version}/images/hicolor/48x48/apps/%{name}.png
 
