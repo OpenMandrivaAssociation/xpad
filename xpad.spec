@@ -1,7 +1,7 @@
 Name: 	 	xpad
 Summary: 	Sticky notepad for GTK+2
 Version: 	4.0
-Release: 	3
+Release: 	4
 Source:		http://launchpad.net/xpad/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
 URL:		https://launchpad.net/xpad/
 License:	GPLv3+
